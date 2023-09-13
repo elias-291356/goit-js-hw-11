@@ -33,6 +33,9 @@ function searchImages(userInputValue) {
       }
       return response.json();
     }).then(data => {
+      if (data.hits.length === 0) {
+        alert("Sorry, there are no images matching your search query. Please try again.");
+      }
       console.log(data);
     }).catch(err => {
       console.log("Error:", err)
