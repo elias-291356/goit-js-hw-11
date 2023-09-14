@@ -282,7 +282,7 @@ refs.btnLoadMoreEl.addEventListener('click', event => {
 
   imageSearch.page += 1;
   imageSearch.searchImages().then(data => {
-    if (data.totalHits / 40 <= imageSearch.page) {
+    if (Math.ceil(data.totalHits / 40) < imageSearch.page) {
       refs.btnLoadMoreEl.classList.add('is-hidden');
       Notiflix.Notify.failure(`its all`); return
     }
